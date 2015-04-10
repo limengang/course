@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @kecheng.name %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @kecheng.teacher %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @kecheng.time %>
+</p>
+
+<%= link_to 'Edit', edit_kecheng_path(@kecheng) %> |
+<%= link_to 'Back', kechengs_path %>
