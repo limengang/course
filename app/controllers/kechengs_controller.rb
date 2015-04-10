@@ -6,13 +6,13 @@ class KechengsController < ApplicationController
   def index
     @kechengs = Kecheng.all
     if params[:name].present?
-    @kecheng = @kecheng.where("name like ?","%#{params[:name]}%")
+    @kecheng = Kecheng.where("name like ?","%#{params[:name]}%")
     end
     if params[:teacher].present?
-    @kecheng = @kecheng.where("teacher like ?","%#{params[:teacher]}%")
+    @kecheng = Kecheng.where("teacher like ?","%#{params[:teacher]}%")
     end
     if params[:time].present?
-    @kecheng = @kecheng.where("time like ?","%#{params[:time]}%")
+    @kecheng = Kecheng.where("time like ?","%#{params[:time]}%")
     end
   end
 
@@ -37,7 +37,7 @@ class KechengsController < ApplicationController
 
     respond_to do |format|
       if @kecheng.save
-        format.html { redirect_to @kecheng, notice: 'Kecheng was successfully created.' }
+        format.html { redirect_to @kecheng, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @kecheng }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class KechengsController < ApplicationController
   def update
     respond_to do |format|
       if @kecheng.update(kecheng_params)
-        format.html { redirect_to @kecheng, notice: 'Kecheng was successfully updated.' }
+        format.html { redirect_to @kecheng, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @kecheng }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class KechengsController < ApplicationController
   def destroy
     @kecheng.destroy
     respond_to do |format|
-      format.html { redirect_to kechengs_url, notice: 'Kecheng was successfully destroyed.' }
+      format.html { redirect_to kechengs_url, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
